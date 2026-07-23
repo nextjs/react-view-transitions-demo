@@ -153,6 +153,14 @@
   30% { filter: blur(3px); }
 }
 
+/* Keep the page interactive while transitions run: the ::view-transition
+   overlay otherwise captures all pointer events. Named participants (the
+   pinned chrome below) are still skipped by hit-testing during a transition
+   -- that part is spec behavior with no CSS override. */
+::view-transition {
+  pointer-events: none;
+}
+
 ::view-transition-group(site-header),
 ::view-transition-group(gallery-controls),
 ::view-transition-group(gallery-back-link),
